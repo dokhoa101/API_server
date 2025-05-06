@@ -33,3 +33,7 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Server đang chạy trên cổng ${PORT}`);
 });
+app.get('/', (req, res) => {
+  res.send('API Server is running');
+});
+
