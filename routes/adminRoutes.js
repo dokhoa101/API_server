@@ -19,7 +19,7 @@ router.post("/login", async (req, res) => {
     return res.status(400).json({ message: "Email không tồn tại!" });
   }
 
-  const isMatch = await bcrypt.compare(Password, admin.Password);
+  const isMatch = (Password === admin.Password);
   if (!isMatch) {
     return res.status(401).json({ message: "Sai mật khẩu!" });
   }
