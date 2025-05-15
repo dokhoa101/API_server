@@ -16,9 +16,8 @@ router.get("/", authMiddleware, async (req, res) => {
 // Lấy tất cả order
 router.get("/all", async (req, res) => {
   try {
-    // Giả sử bạn có field "role" trong user để kiểm tra quyền admin
     
-    const allOrders = await OrderModel.find({});
+    const allOrders = await OrderModel.find({}).populate("UserId");
     res.json(allOrders);
   } catch (error) {
     res.status(500).json({ error: "Lỗi server" });
