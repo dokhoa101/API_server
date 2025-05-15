@@ -17,7 +17,7 @@ router.get("/", authMiddleware, async (req, res) => {
 router.get("/all", async (req, res) => {
   try {
     
-    const allOrders = await OrderModel.find({}).populate("UserId");
+    const allOrders = await OrderModel.find({}).populate("UserId").populate("OrderDetail.ProductId");
     res.json(allOrders);
   } catch (error) {
     res.status(500).json({ error: "Lỗi server" });
